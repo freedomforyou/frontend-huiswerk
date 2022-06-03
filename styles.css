@@ -13,12 +13,25 @@
 ////////////////////////*/
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
+/*Paars #5722CD;*/
+/*Blauw #4845E4;*/
+/*Roze #ED4385;*/
+/*Zwart #0C0C0C (voor standaard tekst);*/
+/*Lichtpaars #F2F0FF (voor de grote zwevende woorden, zoals "hello" en "services") Uitzonderingen:*/
+/*                                                                                 Lichtgrijs #F3F6F9 (voor de achtergrond van de projecten)*/
+/*Grijs #7A7A7A (voor de service-tegel tekst);*/
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto:wght@300&display=swap');
 
+:root {
+    --main-bg-color: #8181A6;
+    --default-margin: 16px;
+}
+
 body {
-    background-color: black;
+    border-color: var(--main-bg-color);
     font-family: 'Roboto', sans-serif;
-    margin: 20px;
+    margin: var(--default-margin);
     padding: 20px;
     max-width: 1200px;
 }
@@ -33,26 +46,17 @@ a:link {
     text-transform: none;
 }
 
-#buttonlink {
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-#case-1 {
-    text-transform: none;
-}
-
 img {
     box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
 }
 
 .menu {
-    color: #5722CD;
     background-image: linear-gradient(to right, #4845E4, #5722CD);
     display: flex;
     flex-direction: row;
     justify-content: right;
     align-items: start;
+    color: #5722CD;
     padding: 20px;
     text-decoration: none;
 }
@@ -73,9 +77,15 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px;
-    justify-content: space-evenly;
     color: white;
+    padding: 50px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
 }
 
 .blog {
@@ -94,12 +104,12 @@ ul {
     flex-direction: column;
     align-items: center;
     padding: 50px;
-    justify-content: space-evenly;
     color: black;
 }
 
 button {
     background-color: #ED4385 ;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
     color: white;
     font-size: 12px;
     display: flex;
@@ -107,10 +117,13 @@ button {
     align-items: center;
     padding: 20px;
     border-radius: 20px;
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 button:hover {
-    background-color: chocolate;
+    background-color: rosybrown;
 }
 
 #case-titel {
@@ -124,6 +137,7 @@ img {
 
 .image-wrapper {
     flex-basis: 800px;
+    max-width: 55%;
     flex-grow: 0;
     flex-shrink: 1;
 }
@@ -132,10 +146,45 @@ img {
     background-color: lightgray;
     display: flex;
     flex-direction: row;
-    :nth-child(even) flex-direction: row-reverse;
     padding: 20px;
     justify-content: space-between;
     color: black;
+}
+
+.cases2 {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20px;
+    justify-content: space-between;
+    color: black;
+}
+
+.casebox {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: left;
+    max-width: 300px;
+    color: black;
+}
+.casebox2 {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: right;
+    max-width: 300px;
+    color: black;
+}
+
+.caseheader {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.viewlink {
+    text-transform: uppercase;
 }
 
 #service {
@@ -145,52 +194,60 @@ img {
 .services {
     background-color: white;
     display: flex;
-    flex-flow: row wrap;
-    flex-basis: 300px;
-    flex-shrink: initial;
-    justify-content: space-around;
-    padding: 50px;
-    color: darkslateblue;
-    max-width: 1200px;
-    border: none;
-}
-
-
-.form {
-    background-color: blue;
-    background-image: linear-gradient(to right, #4845E4, #5722CD);
-    display: flex;
     flex-direction: column;
-    flex-basis: fit-content;
-    align-items: center;
-    padding: 50px;
+    flex-flow: wrap;
+    flex-shrink: inherit;
     justify-content: space-evenly;
-    color: white;
-    max-width: 1200px;
+    align-items: flex-start;
+    padding: 50px;
 }
 
-.formfield {
-    background-color: blue;
-    background-image: linear-gradient(to right, #4845E4, #5722CD);
+.servicebox {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.19) 0 10px 20px, rgba(0, 0, 0, 0.23) 0 6px 6px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    color: white;
-    max-width: 1200px;
-    max-height: 500;
+    flex-shrink: inherit;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    border-style: outset;
+    border-color: #5722CD;
+    width: 300px;
+    height: 300px;
     padding: 20px;
 }
 
-label {
-    text-align: left;
+.service-img {
+    width: 80px;
+    height: 80px;
+    box-shadow: none;
 }
 
-.box {
+.serviceheader{
+    color: #5722CD;
+}
+
+.formfield {
+    background-image: linear-gradient(to right, #4845E4, #5722CD);
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.formbox {
+    display: flex;
+    flex-direction: column;
     width: 800px;
-    height: 100px;
+    padding: 20px;
+}
+
+.buttonbox {
+    background-image: linear-gradient(to right, #4845E4, #5722CD);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
 
@@ -198,8 +255,9 @@ label {
     background-color: black;
     display: flex;
     flex-direction: row;
-    color: white;
+    justify-content: space-evenly;
     align-items: center;
+    color: white;
     padding: 10px;
 }
 
